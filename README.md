@@ -1,2 +1,4 @@
-# final-project
-The codebase for the final project
+Final Project (Hack Noble)
+==========================
+
+This is the final project for CSC 440.
