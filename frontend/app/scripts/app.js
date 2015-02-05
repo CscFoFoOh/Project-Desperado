@@ -1,30 +1,24 @@
 'use strict';
 
-/**
- * @ngdoc overview
- * @name frontendApp
- * @description
- * # frontendApp
- *
- * Main module of the application.
- */
 angular
-  .module('frontendApp', [
+  .module('projectDesperado', [
     'ngResource',
     'ngRoute',
     'ngSanitize'
   ])
-  .config(function ($routeProvider) {
+  .config(function($locationProvider, $routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        controller: 'MainController'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
+      .when('/login', {
+        templateUrl: 'views/login.html',
+        controller: 'LoginController'
       })
       .otherwise({
         redirectTo: '/'
       });
+
+      $locationProvider.html5Mode(true);
   });
