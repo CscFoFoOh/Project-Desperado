@@ -39,6 +39,9 @@ Rails.application.configure do
   # Use letter_opener for email
   config.action_mailer.delivery_method = :letter_opener
 
+  # Set default options for host
+  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end
