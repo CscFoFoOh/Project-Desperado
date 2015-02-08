@@ -4,7 +4,9 @@ angular
   .module('projectDesperado', [
     'ngResource',
     'ngRoute',
-    'ngSanitize'
+    'ngSanitize',
+    'ipCookie',
+    'ng-token-auth'
   ])
   .config(function($locationProvider, $routeProvider) {
     $routeProvider
