@@ -6,6 +6,7 @@ angular
     'ngRoute',
     'ngSanitize',
     'ipCookie',
-    'ng-token-auth'
+    'ng-token-auth',
+    'ui.router'
   ]);
 

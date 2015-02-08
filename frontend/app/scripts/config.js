@@ -2,18 +2,17 @@
 
 angular
 .module('projectDesperado')
-.config(function($locationProvider, $routeProvider) {
-    $routeProvider
-      .when('/', {
+.config(function($locationProvider, $stateProvider) {
+    $stateProvider
+      .state('home', {
+        url: '/',
         templateUrl: 'views/main.html',
         controller: 'MainController'
       })
-      .when('/login', {
+      .state('login', {
+        url: '/login',
         templateUrl: 'views/login.html',
         controller: 'LoginController'
-      })
-      .otherwise({
-        redirectTo: '/'
       });
 
       $locationProvider.html5Mode(true);
