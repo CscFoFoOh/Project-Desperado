@@ -13,6 +13,11 @@ angular
         url: '/login',
         templateUrl: 'views/login.html',
         controller: 'LoginController'
+      })
+      .state('register', {
+        url: '/register',
+        templateUrl: 'views/register.html',
+        controller: 'RegisterController'
       });
 
       $locationProvider.html5Mode(true);
