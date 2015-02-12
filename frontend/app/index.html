@@ -51,6 +51,13 @@
         </div>
       </div>
 
+      <div id="messages" ng-controller="MessagesController">
+        <div class="alert" ng-class="classType" ng-show='message'>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <p>{{ message }}</p>
+        </div>
+      </div>
+
       <div ui-view></div>
     </div>
 
@@ -81,6 +88,7 @@
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/login.js"></script>
     <script src="scripts/controllers/register.js"></script>
+    <script src="scripts/controllers/messages.js"></script>
     <!-- endbuild -->
 </body>
 </html>
