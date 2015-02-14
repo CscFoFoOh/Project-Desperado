@@ -1,28 +1,31 @@
 <div class="row">
+
   <div class="col-md-6 col-md-offset-3">
+    <h1>Register now!</h1>
 
-  <h1>Register now!</h1>
+    <form name="registrationForm" novalidate>
 
-  <form name="registrationForm" novalidate>
+      <div class="form-group" ng-class="{'has-error': registrationForm.email.$dirty && !registrationForm.email.$valid }">
+        <label for="email">Email address</label>
+        <input class="form-control" type="email" name="email" placeholder="Enter email" required ng-model="user.email">
+        <span class="help-block" ng-show="registrationForm.email.$dirty && !registrationForm.email.$valid">You must enter a valid email.</span>
+      </div>
 
-    <div class="form-group">
-      <label for="email">Email address</label>
-      <input class="form-control" type="email" name="email" placeholder="Enter email" ng-model="user.email">
-    </div>
+      <div class="form-group" ng-class="{'has-error': registrationForm.password.$dirty && !registrationForm.password.$valid }">
+        <label for="password">Password</label>
+        <input class="form-control" type="password" name="password" placeholder="Enter password" required pattern=".{8,}" ng-model="user.password">
+        <span class="help-block" ng-show="registrationForm.password.$dirty && !registrationForm.password.$valid">Your password must be at least eight characters long.</span>
+      </div>
 
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input class="form-control" type="password" name="password" placeholder="Enter password" ng-model="user.password">
-    </div>
+      <div class="form-group" ng-class="{'has-error': registrationForm.password_confirmation.$dirty && !registrationForm.password_confirmation.$valid }">
+        <label for="password_confirmation">Confirm Password</label>
+        <input class="form-control" type="password" name="password_confirmation" placeholder="Enter password again" required ng-model="user.password_confirmation" compare-to="user.password">
+        <span class="help-block" ng-show="registrationForm.password_confirmation.$dirty && !registrationForm.password_confirmation.$valid">This must match your password above.</span>
+      </div>
 
-    <div class="form-group">
-      <label for="password_confirmation">Confirm Password</label>
-      <input class="form-control" type="password" name="password_confirmation" placeholder="Enter password again" ng-model="user.password_confirmation">
-    </div>
+      <input type="submit" class="btn btn-primary" ng-click="save()" ng-disabled="!registrationForm.$valid" value="Register!" />
 
-    <button type="submit" class="btn btn-primary" ng-click="save()">Register!</button>
-
-  </form>
+    </form>
 
   </div>
 </div>
