@@ -1,17 +1,13 @@
 'use strict';
 
 angular.module('projectDesperado')
-  .controller('RegisterController', function ($scope, $auth, $log) {
+  .controller('RegisterController', function ($scope, $auth, $state) {
     $scope.user = {};
 
     $scope.save = function() {
       $auth.submitRegistration($scope.user)
         .then(function(resp) {
-          $log.log('Passed');
-          $log.log(resp);
-        }, function(resp) {
-          $log.log('Failed');
-          $log.log(resp);
+          $state.go('home');
         });
     };
   });

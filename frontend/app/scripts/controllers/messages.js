@@ -12,6 +12,12 @@ angular
       clearMessage();
   });
 
+  $scope.$on('auth:registration-email-success', function(ev, data) {
+    $scope.message = 'A confirmation email has been sent. Click the link to activate your account!';
+    $scope.classType = 'alert-success';
+    clearMessage();
+  });
+
   function clearMessage() {
     $timeout(function() {
       $scope.message = '';
