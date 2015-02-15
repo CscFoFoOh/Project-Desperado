@@ -18,6 +18,12 @@ angular
     clearMessage();
   });
 
+  $scope.$on('auth:email-confirmation-success', function(ev, data) {
+    $scope.message = 'You have completed registration. Yay!';
+    $scope.classType = 'alert-success';
+    clearMessage();
+  });
+
   function clearMessage() {
     $timeout(function() {
       $scope.message = '';

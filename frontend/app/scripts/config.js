@@ -18,6 +18,16 @@ angular
         url: '/register',
         templateUrl: 'views/register.html',
         controller: 'RegisterController'
+      })
+      .state('dashboard', {
+        url: '/dashboard',
+        templateUrl: 'views/dashboard.html',
+        controller: 'DashboardController',
+        resolve: {
+          auth: function($auth) {
+            return $auth.validateUser();
+          }
+        }
       });
 
       $locationProvider.html5Mode(true);

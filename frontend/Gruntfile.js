@@ -1,5 +1,6 @@
-// Generated on 2015-01-27 using generator-angular 0.10.0
 'use strict';
+
+var modRewrite = require('connect-modrewrite');
 
 module.exports = function (grunt) {
 
@@ -81,6 +82,8 @@ module.exports = function (grunt) {
 
             // Setup the proxy
             var middlewares = [require('grunt-connect-proxy/lib/utils').proxyRequest];
+
+            middlewares.push(modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.png$ /index.html [L]']));
 
             // Serve static files.
             options.base.forEach(function(base) {
