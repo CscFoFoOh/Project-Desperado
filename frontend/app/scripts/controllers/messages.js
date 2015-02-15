@@ -24,6 +24,12 @@ angular
     clearMessage();
   });
 
+  $scope.$on('auth:login-error', function(ev, data) {
+    $scope.message = 'That username/password combination is incorrect.';
+    $scope.classType = 'alert-danger';
+    clearMessage();
+  });
+
   function clearMessage() {
     $timeout(function() {
       $scope.message = '';
