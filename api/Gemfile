@@ -9,5 +9,5 @@ gem 'oj'
 
 group :development do
   gem 'spring'
-  gem "letter_opener"
+  gem 'mailcatcher'
 end

@@ -36,8 +36,9 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
-  # Use letter_opener for email
-  config.action_mailer.delivery_method = :letter_opener
+  # Use mailcatcher for email
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
 
   # Set default options for host
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
