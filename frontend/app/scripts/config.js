@@ -19,6 +19,16 @@ angular
         templateUrl: 'views/register.html',
         controller: 'RegisterController'
       })
+      .state('password-request', {
+        url: '/password/reset',
+        templateUrl: 'views/password_reset.html',
+        controller: 'ResetPasswordController'
+      })
+      .state('password-confirm', {
+        url: '/password/confirm',
+        templateUrl: 'views/password_confirm.html',
+        controller: 'ConfirmPasswordController'
+      })
       .state('dashboard', {
         url: '/dashboard',
         templateUrl: 'views/dashboard.html',

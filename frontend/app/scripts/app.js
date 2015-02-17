@@ -13,5 +13,9 @@ angular
   $rootScope.$on('auth:email-confirmation-success', function(ev, user) {
     $state.go('dashboard');
   });
+
+  $rootScope.$on('auth:password-reset-confirm-success', function(ev) {
+    $state.go('password-confirm');
+  });
 });
 
