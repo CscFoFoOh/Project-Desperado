@@ -11,7 +11,7 @@ angular
   ])
 .run(function($rootScope, $state, $log) {
   $rootScope.$on('auth:email-confirmation-success', function(ev, user) {
-    $state.go('dashboard');
+    $state.go('dashboard.main');
   });
 
   $rootScope.$on('auth:password-reset-confirm-success', function(ev) {

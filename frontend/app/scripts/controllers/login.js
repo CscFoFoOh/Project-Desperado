@@ -7,7 +7,7 @@ angular.module('projectDesperado')
     $scope.login = function() {
       $auth.submitLogin($scope.user)
         .then(function(resp) {
-          $state.go('dashboard');
+          $state.go('dashboard.main');
         });
     }
 

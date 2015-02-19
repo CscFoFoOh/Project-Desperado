@@ -30,14 +30,19 @@ angular
         controller: 'ConfirmPasswordController'
       })
       .state('dashboard', {
+        abstract: true,
         url: '/dashboard',
-        templateUrl: 'views/dashboard.html',
-        controller: 'DashboardController',
+        templateUrl: 'views/dashboard/dashboard.html',
         resolve: {
           auth: function($auth) {
             return $auth.validateUser();
           }
         }
+      })
+      .state('dashboard.main', {
+        url: '/',
+        templateUrl: 'views/dashboard/main.html',
+        controller: 'DashboardController'
       });
 
       $locationProvider.html5Mode(true);
