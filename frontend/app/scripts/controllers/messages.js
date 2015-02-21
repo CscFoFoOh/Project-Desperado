@@ -48,6 +48,12 @@ angular
     clearMessage();
   });
 
+    $scope.$on('auth:account-update-success', function(ev, res) {
+      $scope.message = "You're account has been updated!";
+      $scope.classType = 'alert-success';
+      clearMessage();
+    });
+
   function clearMessage() {
     $timeout(function() {
       $scope.message = '';

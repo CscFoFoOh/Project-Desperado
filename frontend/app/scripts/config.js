@@ -34,7 +34,7 @@ angular
         url: '/dashboard',
         templateUrl: 'views/dashboard/dashboard.html',
         resolve: {
-          auth: function($auth) {
+          authUser: function($auth) {
             return $auth.validateUser();
           }
         }
@@ -43,6 +43,11 @@ angular
         url: '/',
         templateUrl: 'views/dashboard/main.html',
         controller: 'DashboardController'
+      })
+      .state('dashboard.edit-account', {
+        url: '/edit-account',
+        templateUrl: 'views/dashboard/edit_account.html',
+        controller: 'EditAccountController'
       });
 
       $locationProvider.html5Mode(true);
