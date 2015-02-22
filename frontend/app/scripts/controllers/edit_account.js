@@ -2,7 +2,7 @@
 
 angular
 .module('projectDesperado')
-.controller('EditAccountController', function($scope, $auth, $state, authUser) {
+.controller('EditAccountController', function($scope, $auth, $state, $window, authUser) {
     $scope.user = authUser;
 
     $scope.update = function() {
@@ -10,6 +10,17 @@ angular
         .then(function() {
           $state.go('dashboard.main');
         });
+    };
+
+    $scope.deleteAccount = function() {
+      var confirm = $window.confirm('Are you sure you want to delete your account?  This cannot be undone.');
+
+      if (confirm) {
+        $auth.destroyAccount()
+          .then(function() {
+            $state.go('home');
+          });
+      }
     };
 
 });

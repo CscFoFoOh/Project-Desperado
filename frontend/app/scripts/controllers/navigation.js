@@ -25,5 +25,6 @@ angular
   $scope.$on('auth:validation-success', setLoggedIn);
   $scope.$on('auth:email-confirmation-success', setLoggedIn);
   $scope.$on('auth:logout-success', setLoggedOut);
+  $scope.$on('auth:account-destroy-success', setLoggedOut);
 
 });
