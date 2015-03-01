@@ -155,3 +155,4 @@ DEPENDENCIES
   rails (= 4.2.0)
   rails-api
   spring
+  thin
