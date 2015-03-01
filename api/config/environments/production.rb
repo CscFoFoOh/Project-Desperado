@@ -78,7 +78,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Set default options for host
-  config.action_mailer.default_url_options[:host] = 'pd.alexsears.com'
+  config.action_mailer.default_url_options = { host: 'pd.alexsears.com' }
 
   # Setup Mandrill
   config.action_mailer.smtp_settings = {
