@@ -9,7 +9,6 @@ max_conns: 1024
 max_persistent_conns: 100
 require: []
 wait: 30
-threadpool_size: 20
 servers: 3
 onebyone: true
 daemonize: true
