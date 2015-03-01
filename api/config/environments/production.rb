@@ -78,5 +78,16 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Set default options for host
-  config.action_mailer.default_url_options[:host] = 'projectdesperado.com'
+  config.action_mailer.default_url_options[:host] = 'pd.alexsears.com'
+
+  # Setup Mandrill
+  config.action_mailer.smtp_settings = {
+    :address   => "smtp.mandrillapp.com",
+    :port      => 587, # ports 587 and 2525 are also supported with STARTTLS
+    :enable_starttls_auto => true, # detects and uses STARTTLS
+    :user_name => ENV["MANDRILL_USERNAME"],
+    :password  => ENV["MANDRILL_PASSWORD"], # SMTP password is any valid API key
+    :authentication => 'login', # Mandrill supports 'plain' or 'login'
+    :domain => 'pd.alexsears.com', # your domain to identify your server when connecting
+  }
 end
