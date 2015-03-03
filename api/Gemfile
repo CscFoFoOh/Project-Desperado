@@ -10,4 +10,39 @@ gem 'oj'
 group :development do
   gem 'spring'
   gem 'mailcatcher'
+  gem 'pry-rails'
 end
+
+group :development, :test do
+  # Factory generator
+  gem 'factory_girl_rails', require: false
+
+  gem 'rspec-rails', '~> 3.0'
+end
+
+group :test do 
+  # Generate placeholder data for factories
+  gem 'faker'
+  # Browser testing
+  gem 'capybara'
+  gem 'capybara-email'
+  gem 'capybara-screenshot'
+  # Selenuim (Headless Firefox browser) for testing
+  gem "selenium-webdriver", "~> 2.38.0"
+  # PhantomJS (Headless Webkit browser) for testing
+  gem 'poltergeist'
+  # Open browser on failed integration tests
+  gem 'launchy'
+  # Preload Rails env for testing
+  gem 'spork-rails'
+  # Run RSpec on file changes
+  gem 'guard-rspec'
+  gem 'guard-spork'
+  # Clean DB for each test
+  gem 'database_cleaner'
+  # Provide an easier syntax for unit tests
+  gem 'shoulda-matchers'
+  gem 'cucumber-rails', require: false
+  gem 'simplecov', require: false
+  gem "codeclimate-test-reporter", require: false
+end 
