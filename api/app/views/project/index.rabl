@@ -1,0 +1,1 @@
+collection @projects, root: :data

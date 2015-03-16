@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
           :confirmable
   include DeviseTokenAuth::Concerns::User
 
+  has_many :projects
+
   protected
 
   def generate_url(url, params = {})
