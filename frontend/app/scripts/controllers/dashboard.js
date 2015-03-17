@@ -6,8 +6,8 @@ angular
 
     ProjectFactory
       .getProjects()
-      .then(function(data) {
-        $log.log(data);
+      .then(function(res) {
+        $scope.projects = res.data.projects;
       });
 
 });
