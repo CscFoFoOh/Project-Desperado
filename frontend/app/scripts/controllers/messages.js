@@ -60,6 +60,12 @@ angular
     clearMessage();
   });
 
+  $scope.$on('pd:project-deleted', function() {
+    $scope.message = 'Your project has been deleted.';
+    $scope.classType = 'alert-success';
+    clearMessage();
+  });
+
   function clearMessage() {
     $timeout(function() {
       $scope.message = '';

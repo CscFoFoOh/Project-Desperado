@@ -11,7 +11,11 @@ angular
 
     factory.getProject = function(id) {
       return $http.get(endpoint + '/' + id);
-    }
+    };
+
+    factory.deleteProject = function(id) {
+      return $http.delete(endpoint + '/' + id);
+    };
 
     return factory;
   });
