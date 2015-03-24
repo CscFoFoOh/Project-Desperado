@@ -9,5 +9,9 @@ angular
       return $http.get(endpoint);
     };
 
+    factory.getProject = function(id) {
+      return $http.get(endpoint + '/' + id);
+    }
+
     return factory;
   });

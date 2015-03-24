@@ -48,6 +48,11 @@ angular
         url: '/edit-account',
         templateUrl: 'views/dashboard/edit_account.html',
         controller: 'EditAccountController'
+      })
+      .state('dashboard.single-project', {
+        url: '/projects/{id}',
+        templateUrl: 'views/projects/single.html',
+        controller: 'ProjectController'
       });
 
       $locationProvider.html5Mode(true);

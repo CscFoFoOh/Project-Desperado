@@ -7,7 +7,7 @@ angular
     ProjectFactory
       .getProjects()
       .then(function(res) {
-        $scope.projects = res.data.projects;
+        $scope.projects = res.data.data;
       });
 
 });

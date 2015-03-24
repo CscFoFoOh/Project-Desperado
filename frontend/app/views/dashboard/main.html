@@ -1,5 +1,5 @@
 <h1>My Projects</h1>
 
 <div class="project-btn" ng-repeat="project in projects">
-  {{ project.name }}
+  <a ui-sref="dashboard.single-project({ id: project.id })">{{ project.name }}</a>
 </div>

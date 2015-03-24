@@ -6,14 +6,11 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @projects = current_user.projects
-
-    render 'project/index'
   end
 
   # GET /projects/1
   # GET /projects/1.json
   def show
-    respond_with @project
   end
 
   # POST /projects
@@ -53,6 +50,6 @@ class ProjectsController < ApplicationController
     end
 
     def project_params
-      params[:project]
+      params[:projects]
     end
 end
