@@ -1,0 +1,12 @@
+<div class="row">
+
+  <div class="col-md-6 col-md-offset-3">
+    <h1>Projects</h1>
+
+    <div ng-repeat="project in projects">
+      <h2><a ui-sref="single-project({ id: project.id })">{{ project.name }}</a></h2>
+      <p>{{ project.description }}</p>
+    </div>
+
+  </div>
+</div>

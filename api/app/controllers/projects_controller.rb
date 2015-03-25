@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = current_user.projects
+    @projects = Project.all
   end
 
   # GET /projects/1
@@ -16,7 +16,13 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
-    @project = current_user.projects.build(project_params)
+    @project = Project.create project_params
+    current_user.memberships.create(
+        project_id: @project.id,
+        owner_at: Time.now,
+        accepted_at?: Time.now,
+        applied_at?: Time.now
+    )
 
     if @project.save
       render 'projects/create', status: 201
@@ -31,7 +37,7 @@ class ProjectsController < ApplicationController
     if @project.update(project_params)
       head :no_content
     else
-      respond_with @project.errors, status: :unprocessable_entity
+      render 'projects/error', status: 422
     end
   end
 

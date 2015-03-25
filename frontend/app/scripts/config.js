@@ -53,17 +53,27 @@ angular
       })
       .state('dashboard.add-project', {
         url: '/projects/new',
-        templateUrl: 'views/projects/new.html',
+        templateUrl: 'views/dashboard/projects/new.html',
         controller: 'AddProjectController'
       })
       .state('dashboard.single-project', {
         url: '/projects/{id}',
-        templateUrl: 'views/projects/show.html',
-        controller: 'ProjectController'
+        templateUrl: 'views/dashboard/projects/show.html',
+        controller: 'DashboardProjectController'
       })
       .state('dashboard.edit-project', {
         url: '/projects/{id}/edit',
-        templateUrl: 'views/projects/edit.html',
+        templateUrl: 'views/dashboard/projects/edit.html',
         controller: 'EditProjectController'
+      })
+      .state('projects', {
+        url: '/projects',
+        templateUrl: 'views/projects/index.html',
+        controller: 'ProjectsController'
+      })
+      .state('single-project', {
+        url: '/projects/{id}',
+        templateUrl: 'views/projects/show.html',
+        controller: 'ProjectController'
       });
   });

@@ -1,6 +1,6 @@
 angular
-.module('projectDesperado')
-.controller('DashboardController', function($scope, $log, ProjectFactory) {
+  .module('projectDesperado')
+  .controller('ProjectsController', function($scope, $log, ProjectFactory) {
 
     $scope.projects = [];
 
@@ -10,4 +10,4 @@ angular
         $scope.projects = res.data.data;
       });
 
-});
+  });

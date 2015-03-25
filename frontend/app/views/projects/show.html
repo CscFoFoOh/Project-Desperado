@@ -1,7 +1,11 @@
-<h1>{{ project.name }}</h1>
+<div class="row">
 
-<p>{{ project.description }}</p>
+  <div class="col-md-8 col-md-offset-2">
 
-<a class="btn btn-default" ui-sref="dashboard.edit-project({ id: project.id })">Edit Project</a>
+    <h1>{{ project.name }}</h1>
 
-<button class="btn btn-danger" ng-click="deleteProject()">Delete this project</button>
+    <p>{{ project.description }}</p>
+
+  </div>
+
+</div>
