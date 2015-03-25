@@ -1,5 +1,7 @@
 <h1>My Projects</h1>
 
+<a class="btn btn-default pull-right" ui-sref="dashboard.add-project">Add Project</a>
+
 <div class="project-btn" ng-repeat="project in projects">
   <a ui-sref="dashboard.single-project({ id: project.id })">{{ project.name }}</a>
 </div>

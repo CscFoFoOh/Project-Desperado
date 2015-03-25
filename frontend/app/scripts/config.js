@@ -3,6 +3,8 @@
 angular
 .module('projectDesperado')
 .config(function($locationProvider, $stateProvider) {
+    $locationProvider.html5Mode(true);
+
     $stateProvider
       .state('home', {
         url: '/',
@@ -49,11 +51,14 @@ angular
         templateUrl: 'views/dashboard/edit_account.html',
         controller: 'EditAccountController'
       })
+      .state('dashboard.add-project', {
+        url: '/projects/new',
+        templateUrl: 'views/projects/new.html',
+        controller: 'AddProjectController'
+      })
       .state('dashboard.single-project', {
         url: '/projects/{id}',
-        templateUrl: 'views/projects/single.html',
+        templateUrl: 'views/projects/show.html',
         controller: 'ProjectController'
       });
-
-      $locationProvider.html5Mode(true);
   });

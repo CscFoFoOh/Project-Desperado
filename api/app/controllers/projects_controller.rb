@@ -19,9 +19,9 @@ class ProjectsController < ApplicationController
     @project = current_user.projects.build(project_params)
 
     if @project.save
-      respond_with @project, status: :created, location: @project
+      render 'projects/create', status: 201
     else
-      respond_with @project.errors, status: :unprocessable_entity
+      render 'projects/error', status: 422
     end
   end
 
@@ -50,6 +50,6 @@ class ProjectsController < ApplicationController
     end
 
     def project_params
-      params[:projects]
+      params.permit(:name, :description)
     end
 end
