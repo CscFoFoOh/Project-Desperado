@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::API
   include DeviseTokenAuth::Concerns::SetUserByToken
+  include ActionController::MimeResponds
   include ActionController::ImplicitRender
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
