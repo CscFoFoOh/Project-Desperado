@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
           :confirmable
   include DeviseTokenAuth::Concerns::User
 
-  has_many :projects
+  has_many :memberships
+  has_many :projects, through: :memberships
   has_many :comments
 
   protected
