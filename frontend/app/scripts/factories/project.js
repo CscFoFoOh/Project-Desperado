@@ -17,6 +17,10 @@ angular
       return $http.get(endpoint + '/' + id);
     };
 
+    factory.updateProject = function(id, attrs) {
+      return $http.put(endpoint + '/' + id, attrs);
+    };
+
     factory.deleteProject = function(id) {
       return $http.delete(endpoint + '/' + id);
     };

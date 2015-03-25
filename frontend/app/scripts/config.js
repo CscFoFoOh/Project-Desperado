@@ -60,5 +60,10 @@ angular
         url: '/projects/{id}',
         templateUrl: 'views/projects/show.html',
         controller: 'ProjectController'
+      })
+      .state('dashboard.edit-project', {
+        url: '/projects/{id}/edit',
+        templateUrl: 'views/projects/edit.html',
+        controller: 'EditProjectController'
       });
   });

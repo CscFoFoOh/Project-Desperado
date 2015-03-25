@@ -2,4 +2,6 @@
 
 <p>{{ project.description }}</p>
 
+<a class="btn btn-default" ui-sref="dashboard.edit-project({ id: project.id })">Edit Project</a>
+
 <button class="btn btn-danger" ng-click="deleteProject()">Delete this project</button>

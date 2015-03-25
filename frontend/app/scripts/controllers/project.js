@@ -1,6 +1,6 @@
 angular
 .module('projectDesperado')
-.controller('ProjectController', function($scope, $window, $state, $stateParams, $rootScope, ProjectFactory) {
+.controller('ProjectController', function($scope, $window, $state, $stateParams, $rootScope, ProjectFactory, $log) {
 
     $scope.project = {};
     $scope.project_id = $stateParams.id;
