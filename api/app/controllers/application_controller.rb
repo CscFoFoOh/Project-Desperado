@@ -9,4 +9,12 @@ class ApplicationController < ActionController::API
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:account_update).push(:first_name, :last_name)
   end
+
+  # If you want constant auth
+  # check_authorization
+
+  # If you want to rescue from auth error and redirect
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, :alert => exception.message
+  end
 end
