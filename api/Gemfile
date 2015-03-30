@@ -8,6 +8,7 @@ gem 'devise_token_auth'
 gem 'multi_json'
 gem 'oj'
 gem 'thin'
+gem 'rolify'
 
 group :development do
   gem 'spring'
