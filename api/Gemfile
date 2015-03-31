@@ -8,7 +8,6 @@ gem 'devise_token_auth'
 gem 'multi_json'
 gem 'oj'
 gem 'thin'
-gem 'rolify'
 gem 'cancancan', '~>1.10'
 
 group :development do

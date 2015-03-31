@@ -20,8 +20,8 @@ class ProjectsController < ApplicationController
     current_user.memberships.create(
         project_id: @project.id,
         owner_at: Time.now,
-        accepted_at?: Time.now,
-        applied_at?: Time.now
+        accepted_at: Time.now,
+        applied_at: Time.now
     )
 
     if @project.save

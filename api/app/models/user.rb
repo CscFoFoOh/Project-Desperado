@@ -1,12 +1,11 @@
 class User < ActiveRecord::Base
-  rolify
   # Include default devise modules.
   devise :database_authenticatable, :registerable,
           :recoverable, :rememberable, :trackable, :validatable,
           :confirmable
   include DeviseTokenAuth::Concerns::User
 
-  has_many :memberships
+  has_many :memberships, dependent: :destroy
   has_many :projects, through: :memberships
   has_many :comments
 

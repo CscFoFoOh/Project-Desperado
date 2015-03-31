@@ -11,7 +11,7 @@ class Ability
     can [:edit, :update], User, id: user.id
     
     # Admins can do everything
-    can :manage, :all if user.is_admin?
+    can :manage, :all if user.admin?
 
     # # This is for testing
     # # We need to set access control for the right user
