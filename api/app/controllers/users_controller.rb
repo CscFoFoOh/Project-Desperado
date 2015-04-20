@@ -1,16 +1,16 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, only: [:show, :update, :destroy]
+  load_and_authorize_resource
 
   def index
-    @users = User.all
+    @users = @users.where.not(id: current_user.id)
   end
 
   def show
   end
 
   def create
-    @user = User.new user_params
+    @user.assign_attributes user_params
     @user.skip_confirmation!
 
     if @user.save
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update(user_params)
+    if @user.update user_params
       head :no_content
     else
       render 'users/error', status: 422
@@ -35,10 +35,6 @@ class UsersController < ApplicationController
   end
 
   private
-
-    def set_user
-      @user = User.find(params[:id])
-    end
 
     def user_params
       params.permit(:email, :password, :password_confirmation, :first_name, :last_name, :provider)

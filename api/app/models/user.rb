@@ -9,6 +9,10 @@ class User < ActiveRecord::Base
   has_many :projects, through: :memberships
   has_many :comments
 
+  def admin?
+    is_admin
+  end
+
   protected
 
   def generate_url(url, params = {})
