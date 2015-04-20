@@ -1,7 +1,32 @@
-<h1>{{ project.name }}</h1>
+<div class="row">
+  	<div class="col-md-8 col-md-offset-2">
+	  	<div class="panel panel-default">
+	      	<div class="panel-heading">
+	      		{{ project.name }} 
+	      		<div class="pull-right">
+	      			<a class="btn btn-default btn-xs" ui-sref="dashboard.edit-project({ id: project.id })">Edit Project</a> &nbsp;
+	      			<button class="btn btn-danger btn-xs" ng-click="deleteProject()">Delete this project</button>
+	      		</div>
+	      	</div>
+	      	<div class="panel-body">
+			    <table>
+			        <tr>
+			          	<td>
+			            	<strong>Description:</strong>
+			        	</td>
+			        </tr>
+			        <tr>
+			          	<td>
+			            	<div>{{ project.description }}</div>
+			        	</td>
+			        </tr>
+			    </table>
+			</div>
+  			<div class="panel-footer"><div class="create-date"> Created On: {{ project.created_at | date:'MM/dd/yyyy' }}</div></div>
+    	</div>
+  	</div>
+</div>
 
-<p>{{ project.description }}</p>
 
-<a class="btn btn-default" ui-sref="dashboard.edit-project({ id: project.id })">Edit Project</a>
 
-<button class="btn btn-danger" ng-click="deleteProject()">Delete this project</button>
+

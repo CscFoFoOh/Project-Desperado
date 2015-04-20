@@ -1,24 +1,19 @@
 <div class="row">
+  <div class="col-md-8 col-md-offset-2">
+  <div class="panel panel-default">
+      <div class="panel-heading">Add a Project</div>
+            <form name="projectForm" novalidate>
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input class="form-control" type="text" name="name" placeholder="Enter project name" required ng-model="project.name">
+              </div>
+              <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control" name="description" required ng-model="project.description"></textarea>
+              </div>
 
-  <div class="col-md-8">
-    <h1>Add a project</h1>
-
-    <form name="projectForm" novalidate>
-
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input class="form-control" type="text" name="name" placeholder="Enter project name" required ng-model="project.name">
-      </div>
-
-      <div class="form-group">
-        <label for="description">Description</label>
-        <textarea class="form-control" name="description" required ng-model="project.description"></textarea>
-      </div>
-
-      <input type="submit" class="btn btn-primary" ng-click="createProject()" ng-disabled="!projectForm.$valid" value="Create Project" />
-
-    </form>
-
+              <input type="submit" class="btn btn-primary" ng-click="createProject()" ng-disabled="!projectForm.$valid" value="Create Project" />
+            </form>
+    </div>
   </div>
 </div>
-

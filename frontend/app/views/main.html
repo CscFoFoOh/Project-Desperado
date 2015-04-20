@@ -1,1 +1,28 @@
-<p>This is the main page.</p>
+<div class="row">
+	<div class="col-md-8 col-md-offset-2">
+<div class="well well-sm">
+  <h2>Welcome to Project Desperado!</h2>
+  <p>Project Desperado is a collaboration tool for developers of all skill levels.</p>
+  <p>Here's how it works:</p>
+  <p>Users can post a <a ui-sref="projects">project</a> that they are looking for help on.</p>
+  <p>Other users can search for projects in their area of interest and apply to be a part of them.</p>
+  <p>Anyone can see project and user info in order to view a project they are interested in, or a developer's skillset.</p>
+</div>
+</div>
+</div>
+<div class="row" ng-controller="ProjectsController">
+	<div class="col-md-8 col-md-offset-2">
+	<div class="panel panel-default">
+	    <div class="panel-heading">Newest Projects</div>
+		<table>
+		    <tr ng-repeat="project in projects | orderBy : '-created_at' | limitTo:5">
+		    	<td>
+		    		<h4><a ui-sref="single-project({ id: project.id })">{{ project.name }}</a></h4>
+		    		<div>{{ project.description }}</div>
+					<div class="create-date"> Created On: {{ project.created_at | date:'MM/dd/yyyy' }}</div>
+				</td>
+		    </tr>
+		</table>
+	  </div>
+	</div>
+</div>

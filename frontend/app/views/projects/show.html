@@ -1,11 +1,20 @@
 <div class="row">
-
   <div class="col-md-8 col-md-offset-2">
-
-    <h1>{{ project.name }}</h1>
-
-    <p>{{ project.description }}</p>
-
+  <div class="panel panel-default">
+      <div class="panel-heading">{{ project.name }}</div>
+    <table>
+        <tr>
+          	<td>
+            	<strong>Description:</strong>
+        	</td>
+        </tr>
+        <tr>
+          	<td>
+            	<div>{{ project.description }}</div>
+        	</td>
+        </tr>
+    </table>
+	<div class="panel-footer"><div class="create-date"> Created On: {{ project.created_at | date:'MM/dd/yyyy' }}</div></div>
+    </div>
   </div>
-
 </div>

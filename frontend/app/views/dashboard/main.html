@@ -1,7 +1,16 @@
-<h1>My Projects</h1>
-
-<a class="btn btn-default pull-right" ui-sref="dashboard.add-project">Add Project</a>
-
-<div class="project-btn" ng-repeat="project in projects">
-  <a ui-sref="dashboard.single-project({ id: project.id })">{{ project.name }}</a>
+<div class="row" ng-controller="DashboardController">
+  <div class="col-md-8 col-md-offset-2">
+  <div class="panel panel-default">
+      <div class="panel-heading">My Projects<a class="btn btn-default btn-xs pull-right" ui-sref="dashboard.add-project">Add Project</a></div>
+    <table>
+        <tr ng-repeat="project in projects | orderBy : 'created_at'">
+          <td>
+            <h4><a ui-sref="dashboard.single-project({ id: project.id })">{{ project.name }}</a></h4>
+            <div>{{ project.description }}</div>
+          <div class="create-date"> Created On: {{ project.created_at | date:'MM/dd/yyyy' }}</div>
+        </td>
+        </tr>
+    </table>
+    </div>
+  </div>
 </div>
