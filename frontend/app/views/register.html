@@ -23,6 +23,16 @@
         <span class="help-block" ng-show="registrationForm.password_confirmation.$dirty && !registrationForm.password_confirmation.$valid">This must match your password above.</span>
       </div>
 
+      <div class="form-group">
+        <label for="first_name">First Name</label>
+        <input class="form-control" type="text" name="first_name" placeholder="Enter user first name" required ng-model="user.first_name">
+      </div>
+
+      <div class="form-group">
+        <label for="last_name">Last Name</label>
+        <input class="form-control" type="text" name="last_name" placeholder="Enter user last name" required ng-model="user.last_name">
+      </div>
+
       <input type="submit" class="btn btn-primary" ng-click="save()" ng-disabled="!registrationForm.$valid" value="Register!" />
 
     </form>

@@ -10,7 +10,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create user_params
+    @user = User.new user_params
+    @user.skip_confirmation!
 
     if @user.save
       render 'users/create', status: 201

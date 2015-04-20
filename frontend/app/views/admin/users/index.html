@@ -3,3 +3,5 @@
 <div class="user-btn" ng-repeat="user in users">
   <a ui-sref="admin.single-user({ id: user.id })">{{ user.first_name + ' ' + user.last_name }}</a>
 </div>
+
+<a ui-sref="admin.add-user" class="btn btn-primary pull-right">Add User</a>

@@ -91,14 +91,19 @@ angular
         templateUrl: 'views/admin/users/index.html',
         controller: 'AdminUsersController'
       })
-      .state('admin.single-user', {
-        url: '/users/{id}',
-        templateUrl: 'views/admin/users/show.html',
-        controller: 'AdminUserController'
+      .state('admin.add-user', {
+        url: '/users/new',
+        templateUrl: 'views/admin/users/new.html',
+        controller: 'AdminAddUserController'
       })
       .state('admin.edit-user', {
         url: '/users/{id}/edit',
         templateUrl: 'views/admin/users/edit.html',
         controller: 'AdminEditUserController'
+      })
+      .state('admin.single-user', {
+        url: '/users/{id}',
+        templateUrl: 'views/admin/users/show.html',
+        controller: 'AdminUserController'
       });
   });

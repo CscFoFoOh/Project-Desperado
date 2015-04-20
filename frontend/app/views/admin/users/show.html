@@ -2,7 +2,7 @@
   	<div class="col-md-8 col-md-offset-2">
 	  	<div class="panel panel-default">
 	      	<div class="panel-heading">
-	      		{{ user.first_name + ' ' + last_name }}
+	      		{{ user.first_name + ' ' + user.last_name }}
 	      		<div class="pull-right">
 	      			<a class="btn btn-default btn-xs" ui-sref="admin.edit-user({ id: user.id })">Edit User</a> &nbsp;
 	      			<button class="btn btn-danger btn-xs" ng-click="deleteUser()">Delete this user</button>
