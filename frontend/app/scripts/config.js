@@ -95,5 +95,10 @@ angular
         url: '/users/{id}',
         templateUrl: 'views/admin/users/show.html',
         controller: 'AdminUserController'
+      })
+      .state('admin.edit-user', {
+        url: '/users/{id}/edit',
+        templateUrl: 'views/admin/users/edit.html',
+        controller: 'AdminEditUserController'
       });
   });
