@@ -88,7 +88,12 @@ angular
       })
       .state('admin.admin-users', {
         url: '/users',
-        templateUrl: 'views/admin/users.html',
+        templateUrl: 'views/admin/users/index.html',
         controller: 'AdminUsersController'
+      })
+      .state('admin.single-user', {
+        url: '/users/{id}',
+        templateUrl: 'views/admin/users/show.html',
+        controller: 'AdminUserController'
       });
   });
