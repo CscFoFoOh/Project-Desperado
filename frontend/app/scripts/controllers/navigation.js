@@ -5,9 +5,11 @@ angular
 .controller('NavigationController', function($scope, $auth, $state) {
 
   $scope.loggedIn = false;
+  $scope.isAdmin = false;
 
-  function setLoggedIn() {
+  function setLoggedIn(ev, user) {
     $scope.loggedIn = true;
+    $scope.isAdmin = user.is_admin;
   }
 
   function setLoggedOut() {

@@ -75,5 +75,20 @@ angular
         url: '/projects/{id}',
         templateUrl: 'views/projects/show.html',
         controller: 'ProjectController'
+      })
+      .state('admin', {
+        abstract: true,
+        url: '/admin',
+        templateUrl: 'views/admin/admin.html',
+        resolve: {
+          authUser: function($auth) {
+            return $auth.validateUser();
+          }
+        }
+      })
+      .state('admin.admin-users', {
+        url: '/users',
+        templateUrl: 'views/admin/users.html',
+        controller: 'AdminUsersController'
       });
   });
