@@ -19,9 +19,7 @@ class ProjectsController < ApplicationController
     @project = Project.create project_params
     current_user.memberships.create(
         project_id: @project.id,
-        owner_at: Time.now,
-        accepted_at: Time.now,
-        applied_at: Time.now
+        owner_at: Time.now
     )
 
     if @project.save
@@ -47,6 +45,12 @@ class ProjectsController < ApplicationController
     @project.destroy
 
     head :no_content
+  end
+
+  def users
+    @users = User.joins(:memberships).where.not(id: current_user.id, memberships: { accepted_at: nil, owner_at: nil })
+
+    render 'users/index', status: 200
   end
 
   private

@@ -13,6 +13,10 @@ class User < ActiveRecord::Base
     is_admin
   end
 
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
   protected
 
   def generate_url(url, params = {})

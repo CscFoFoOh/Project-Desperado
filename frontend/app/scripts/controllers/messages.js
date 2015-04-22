@@ -66,6 +66,12 @@ angular
     clearMessage();
   });
 
+  $scope.$on('pd:user-invited', function() {
+    $scope.message = 'An invitation has been sent to the user.';
+    $scope.classType = 'alert-success';
+    clearMessage();
+  });
+
   function clearMessage() {
     $timeout(function() {
       $scope.message = '';
