@@ -1,7 +1,6 @@
 object false
 node(:id) { @invitation.id }
-node(:user_id) { @invitation.user_id }
 node(:invited_at) { @invitation.invited_at }
-node(:user_name) do
-  @invitation.user.full_name
+child(@user => :user) do
+  attributes :id, :first_name, :last_name, :provider, :email, :is_admin
 end

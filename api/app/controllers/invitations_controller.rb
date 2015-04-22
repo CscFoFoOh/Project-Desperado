@@ -7,7 +7,7 @@ class InvitationsController < ApplicationController
 
   def create
     @user = User.find_by email: params[:email]
-    @invitation = @project.invitations.build(user_id: @user.id, invited_at: Time.now)
+    @invitation = @project.invitations.build(user_id: @user.id, invited_at: Time.now, accepted_at: Time.now)
 
     if @invitation.save
       render 'invitations/create', status: 201

@@ -39,6 +39,7 @@ angular
           $log.log(res);
           $rootScope.$broadcast('pd:user-invited');
           $scope.new_user = {};
+          $scope.project_users.push(res.data.user);
         });
     };
 
