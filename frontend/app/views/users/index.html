@@ -5,11 +5,10 @@
     <table>
         <tr ng-repeat="user in users | orderBy : 'last_name'">
           <td>
-            <h4><a ui-sref="single-project({ id: project.id })">{{ user.first_name + ' ' + user.last_name }}</a></h4>
+            <h4><a ui-sref="single-user({ slug: user.slug })">{{ user.first_name + ' ' + user.last_name }}</a></h4>
           </td>
         </tr>
     </table>
     </div>
   </div>
 </div>
-<div class="row">

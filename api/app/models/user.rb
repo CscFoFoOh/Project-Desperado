@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  before_create :create_slug
   # Include default devise modules.
   devise :database_authenticatable, :registerable,
           :recoverable, :rememberable, :trackable, :validatable,
@@ -15,6 +16,18 @@ class User < ActiveRecord::Base
 
   def full_name
     "#{first_name} #{last_name}"
+  end
+
+  def create_slug(count = 1)
+    sha256 = Digest::SHA2.new
+    sha256 << "#{first_name}#{last_name}#{email}#{count}"
+    slug = sha256.hexdigest
+
+    if User.find_by slug: slug
+      create_slug(count + 1)
+    else
+      self.slug = slug
+    end
   end
 
   protected

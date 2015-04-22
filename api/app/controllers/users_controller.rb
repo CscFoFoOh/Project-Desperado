@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, except: :index
-  load_and_authorize_resource
+  before_action :authenticate_user!, except: [:index, :show]
+  load_and_authorize_resource except: :show
   skip_authorize_resource only: :index
 
   def index
@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find_by slug: params[:id]
   end
 
   def create

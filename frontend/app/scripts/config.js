@@ -83,6 +83,11 @@ angular
         templateUrl: 'views/users/index.html',
         controller: 'UsersController'
       })
+      .state('single-user', {
+        url: '/users/{slug}',
+        templateUrl: 'views/users/show.html',
+        controller: 'UserController'
+      })
 
       .state('admin', {
         abstract: true,
