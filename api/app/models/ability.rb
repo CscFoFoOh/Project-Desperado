@@ -7,6 +7,8 @@ class Ability
     alias_action :create, :read, :update, :destroy, :to => :crud
     alias_action :index, :show, :new, :destroy, :to => :isnd
 
+    can :read, User
+
     # Allow a user to edit their own profile
     can [:edit, :update], User, id: user.id
 

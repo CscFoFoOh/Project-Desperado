@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: :index
   load_and_authorize_resource
+  skip_authorize_resource only: :index
 
   def index
-    @users = @users.where.not(id: current_user.id)
+    @users = User.all
+    @users = @users.where.not(id: current_user.id) if user_signed_in?
   end
 
   def show

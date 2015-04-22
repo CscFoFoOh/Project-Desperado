@@ -66,6 +66,7 @@ angular
         templateUrl: 'views/dashboard/projects/edit.html',
         controller: 'EditProjectController'
       })
+
       .state('projects', {
         url: '/projects',
         templateUrl: 'views/projects/index.html',
@@ -76,6 +77,13 @@ angular
         templateUrl: 'views/projects/show.html',
         controller: 'ProjectController'
       })
+
+      .state('users', {
+        url: '/users',
+        templateUrl: 'views/users/index.html',
+        controller: 'UsersController'
+      })
+
       .state('admin', {
         abstract: true,
         url: '/admin',
