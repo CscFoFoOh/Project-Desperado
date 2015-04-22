@@ -3,7 +3,7 @@ class Application < Membership
 
   private
 
-  def set_invited_at
+  def set_applied_at
     self.applied_at = Time.now
   end
 end
