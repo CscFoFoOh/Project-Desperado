@@ -110,12 +110,12 @@ angular
         controller: 'AdminAddUserController'
       })
       .state('admin.edit-user', {
-        url: '/users/{id}/edit',
+        url: '/users/{slug}/edit',
         templateUrl: 'views/admin/users/edit.html',
         controller: 'AdminEditUserController'
       })
       .state('admin.single-user', {
-        url: '/users/{id}',
+        url: '/users/{slug}',
         templateUrl: 'views/admin/users/show.html',
         controller: 'AdminUserController'
       });

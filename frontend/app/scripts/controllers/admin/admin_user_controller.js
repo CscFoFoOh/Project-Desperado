@@ -6,10 +6,10 @@ angular
     $state.go('dashboard.main');
   }
 
-  $scope.user_id = $stateParams.id;
+  $scope.user_slug = $stateParams.slug;
 
   UserFactory
-    .getUser($scope.user_id)
+    .getUser($scope.user_slug)
     .then(function(res) {
       $scope.user = res.data.data;
     });
@@ -19,7 +19,7 @@ angular
 
     if (confirm) {
       UserFactory
-        .deleteUser($scope.user_id)
+        .deleteUser($scope.user_slug)
         .then(function(res) {
           $rootScope.$broadcast('pd:user-deleted');
           $state.go('admin.admin-users');

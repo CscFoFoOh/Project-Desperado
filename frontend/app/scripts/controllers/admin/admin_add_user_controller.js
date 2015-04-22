@@ -1,6 +1,6 @@
 angular
 .module('projectDesperado')
-.controller('AdminAddUserController', function($scope, authUser, $state, UserFactory, $rootScope, $log) {
+.controller('AdminAddUserController', function($scope, authUser, $state, UserFactory, $rootScope) {
 
   if (!authUser.is_admin) {
     $state.go('dashboard.main');
@@ -12,11 +12,8 @@ angular
       UserFactory
         .createUser($scope.user)
         .then(function(res) {
-          $log.log(res);
           $rootScope.$broadcast('pd:user-created');
-          $state.go('admin.single-user', { id: res.data.id });
-        }, function(res) {
-          $log.log(res);
+          $state.go('admin.single-user', { slug: res.data.slug });
         });
     };
 

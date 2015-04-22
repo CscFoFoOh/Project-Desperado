@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  load_and_authorize_resource except: :show
-  skip_authorize_resource only: :index
 
   def index
     @users = User.all
@@ -13,7 +11,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user.assign_attributes user_params
+    authorize! :create, User
+    @user = User.new user_params
     @user.skip_confirmation!
 
     if @user.save
@@ -24,6 +23,9 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user = User.find_by slug: params[:id]
+    authorize! :update, @user
+
     if @user.update user_params
       head :no_content
     else
@@ -32,6 +34,8 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    @user = User.find_by slug: params[:id]
+    authorize! :destroy, @user
     @user.destroy
 
     head :no_content
