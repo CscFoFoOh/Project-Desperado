@@ -2,7 +2,7 @@ class ProjectUsersController < ApplicationController
   before_action :set_project, except: :destroy
 
   def index
-    @users = User.joins(:memberships).where(memberships: { project_id: @project.id }).where.not(id: current_user.id)
+    @users = User.joins(:memberships).where(memberships: { project_id: @project.id })
 
     render 'users/index', status: 200
   end
@@ -28,6 +28,7 @@ class ProjectUsersController < ApplicationController
 
   def set_project
     @project = Project.find params[:project_id]
+    authorize! :crud, @project
   end
 
 end

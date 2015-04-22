@@ -11,4 +11,8 @@ class Project < ActiveRecord::Base
   def applications
     memberships.applications
   end
+
+  def owner
+    memberships.where.not(owner_at: nil).first.user
+  end
 end

@@ -38,9 +38,9 @@
           <tr ng-repeat="user in project_users">
             <td>{{ user.first_name + " " + user.last_name }}</td>
             <td>{{ user.email }}</td>
-            <td><a><i ng-click="removeUser(user.id)" class="fa fa-times"></i></a></td>
+            <td ng-if="logged_in_user.id === owner_id && logged_in_user.id !== user.id"><a><i ng-click="removeUser(user.id)" class="fa fa-times"></i></a></td>
           </tr>
-          <tr>
+          <tr ng-if="logged_in_user.id === owner_id">
             <td>
               <form class="form-inline">
                 <div class="form-group">

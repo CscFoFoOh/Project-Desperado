@@ -13,6 +13,10 @@ class Ability
     # Admins can do everything
     can :manage, :all if user.admin?
 
+    can :crud, Project do |project|
+      project.owner == user
+    end
+
     # # This is for testing
     # # We need to set access control for the right user
     # can :crud, [Access, Airport, Attachment, BillCode, Client, ClosingForm, Customer, Equipment,

@@ -1,16 +1,19 @@
 angular
 .module('projectDesperado')
-.controller('DashboardProjectController', function($scope, $window, $state, $stateParams, $rootScope, ProjectFactory, $log) {
+.controller('DashboardProjectController', function($scope, $window, $state, $stateParams, $rootScope, ProjectFactory, authUser) {
 
     $scope.project = {};
     $scope.new_user = {};
     $scope.project_users = [];
     $scope.project_id = $stateParams.id;
+    $scope.logged_in_user = authUser;
+    $scope.owner_id = null;
 
     ProjectFactory
       .getProject($scope.project_id)
       .then(function(res) {
         $scope.project = res.data.data;
+        $scope.owner_id = $scope.project.owner_id;
       });
 
     ProjectFactory
@@ -36,7 +39,6 @@ angular
       ProjectFactory
         .addUser($scope.project_id, $scope.new_user)
         .then(function(res) {
-          $log.log(res);
           $rootScope.$broadcast('pd:user-added');
           $scope.new_user = {};
           $scope.project_users.push(res.data.user);
@@ -47,7 +49,6 @@ angular
       ProjectFactory
         .removeUser($scope.project_id, user_id)
         .then(function(res) {
-          $log.log(res);
           $rootScope.$broadcast('pd:user-removed');
           for (i = 0; i < $scope.project_users.length; i++) {
             temp = $scope.project_users[i];
