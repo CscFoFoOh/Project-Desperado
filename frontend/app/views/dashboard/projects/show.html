@@ -38,13 +38,14 @@
           <tr ng-repeat="user in project_users">
             <td>{{ user.first_name + " " + user.last_name }}</td>
             <td>{{ user.email }}</td>
+            <td><a><i ng-click="removeUser(user.id)" class="fa fa-times"></i></a></td>
           </tr>
           <tr>
             <td>
               <form class="form-inline">
                 <div class="form-group">
                   <input type="email" name="email" ng-model="new_user.email" class="form-control" placeholder="Invite User to Project" />
-                  <button class="btn btn-primary" ng-click="inviteUser()">Invite</button>
+                  <button class="btn btn-primary" ng-click="addUser()">Invite</button>
                 </div>
               </form>
             </td>

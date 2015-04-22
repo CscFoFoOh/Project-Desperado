@@ -21,20 +21,24 @@ angular
       return $http.get('/api/' + endpoint + '/' + id);
     };
 
-    factory.getProjectUsers = function(id) {
-      return $http.get('/api' + endpoint + '/' + id + '/users');
-    };
-
     factory.updateProject = function(id, attrs) {
       return $http.put('/api' + endpoint + '/' + id, attrs);
     };
 
-    factory.inviteUser = function(id, attrs) {
-      return $http.post('/api' + endpoint + '/' + id + '/invitations', attrs);
-    };
-
     factory.deleteProject = function(id) {
       return $http.delete('/api/' + endpoint + '/' + id);
+    };
+
+    factory.getProjectUsers = function(id) {
+      return $http.get('/api' + endpoint + '/' + id + '/users');
+    };
+
+    factory.addUser = function(id, attrs) {
+      return $http.post('/api' + endpoint + '/' + id + '/users', attrs);
+    };
+
+    factory.removeUser = function(project_id, user_id) {
+      return $http.delete('/api' + endpoint + '/' + project_id + '/users/' + user_id);
     };
 
     return factory;

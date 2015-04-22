@@ -47,12 +47,6 @@ class ProjectsController < ApplicationController
     head :no_content
   end
 
-  def users
-    @users = User.joins(:memberships).where.not(id: current_user.id, memberships: { accepted_at: nil, owner_at: nil })
-
-    render 'users/index', status: 200
-  end
-
   private
 
     def set_project

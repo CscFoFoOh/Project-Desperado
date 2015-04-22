@@ -66,8 +66,14 @@ angular
     clearMessage();
   });
 
-  $scope.$on('pd:user-invited', function() {
-    $scope.message = 'An invitation has been sent to the user.';
+  $scope.$on('pd:user-added', function() {
+    $scope.message = 'The user has been added to the project.';
+    $scope.classType = 'alert-success';
+    clearMessage();
+  });
+
+  $scope.$on('pd:user-removed', function() {
+    $scope.message = 'The user has been removed from the project.';
     $scope.classType = 'alert-success';
     clearMessage();
   });

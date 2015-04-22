@@ -32,15 +32,30 @@ angular
       }
     };
 
-    $scope.inviteUser = function() {
+    $scope.addUser = function() {
       ProjectFactory
-        .inviteUser($scope.project_id, $scope.new_user)
+        .addUser($scope.project_id, $scope.new_user)
         .then(function(res) {
           $log.log(res);
-          $rootScope.$broadcast('pd:user-invited');
+          $rootScope.$broadcast('pd:user-added');
           $scope.new_user = {};
           $scope.project_users.push(res.data.user);
         });
     };
+
+    $scope.removeUser = function(user_id) {
+      ProjectFactory
+        .removeUser($scope.project_id, user_id)
+        .then(function(res) {
+          $log.log(res);
+          $rootScope.$broadcast('pd:user-removed');
+          for (i = 0; i < $scope.project_users.length; i++) {
+            temp = $scope.project_users[i];
+            if (temp.id === user_id) {
+              $scope.project_users.splice(i, 1);
+            }
+          }
+        });
+    }
 
   });

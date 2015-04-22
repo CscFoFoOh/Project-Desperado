@@ -1,8 +1,10 @@
-class InvitationsController < ApplicationController
-  before_action :set_project
+class ProjectUsersController < ApplicationController
+  before_action :set_project, except: :destroy
 
   def index
-    @invitations = @project.invitations.joins(:user)
+    @users = User.joins(:memberships).where(memberships: { project_id: @project.id }).where.not(id: current_user.id)
+
+    render 'users/index', status: 200
   end
 
   def create
@@ -14,6 +16,12 @@ class InvitationsController < ApplicationController
     else
       render 'invitations/error', status: 422
     end
+  end
+
+  def destroy
+    Membership.destroy_all project_id: params[:project_id], user_id: params[:id]
+
+    head :no_content
   end
 
   private

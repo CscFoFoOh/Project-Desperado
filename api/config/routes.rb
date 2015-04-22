@@ -5,8 +5,7 @@ Rails.application.routes.draw do
     get '/me/projects', to: 'me#projects'
     resources :users, except: [:new, :edit]
     resources :projects, except: [:new, :edit] do
-      get '/users', to: 'projects#users'
-      resources :invitations, only: [:index, :create]
+      resources :users, controller: :project_users, only: [:index, :create, :destroy]
     end
   end
 
