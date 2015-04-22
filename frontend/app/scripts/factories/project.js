@@ -41,5 +41,9 @@ angular
       return $http.delete('/api' + endpoint + '/' + project_id + '/users/' + user_id);
     };
 
+    factory.applyUser = function(id, attrs) {
+      return $http.post('/api' + endpoint + '/' + id + '/applications', attrs);
+    };
+
     return factory;
   });

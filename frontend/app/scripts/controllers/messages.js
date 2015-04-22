@@ -78,6 +78,12 @@ angular
     clearMessage();
   });
 
+  $scope.$on('pd:applied-to-project', function() {
+    $scope.message = 'An email has been sent to the owner of the project. If they approve you, you\'re in!';
+    $scope.classType = 'alert-success';
+    clearMessage();
+  });
+
   function clearMessage() {
     $timeout(function() {
       $scope.message = '';

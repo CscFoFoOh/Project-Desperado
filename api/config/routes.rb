@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :users, except: [:new, :edit]
     resources :projects, except: [:new, :edit] do
       resources :users, controller: :project_users, only: [:index, :create, :destroy]
+      resources :applications, controller: :project_applications, only: :create
     end
   end
 
