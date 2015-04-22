@@ -32,6 +32,8 @@ class ProjectsController < ApplicationController
   # PATCH/PUT /projects/1
   # PATCH/PUT /projects/1.json
   def update
+    authorize! :update, @project
+
     if @project.update(project_params)
       head :no_content
     else
@@ -42,6 +44,7 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy
+    authorize! :destroy, @project
     @project.destroy
 
     head :no_content

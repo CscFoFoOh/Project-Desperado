@@ -3,7 +3,7 @@
   	<div class="panel panel-default">
     	<div class="panel-heading">
     		{{ project.name }}
-    		<div class="pull-right">
+    		<div class="pull-right" ng-if="logged_in_user.id === owner_id">
     			<a class="btn btn-default btn-xs" ui-sref="dashboard.edit-project({ id: project.id })">Edit Project</a> &nbsp;
     			<button class="btn btn-danger btn-xs" ng-click="deleteProject()">Delete this project</button>
     		</div>

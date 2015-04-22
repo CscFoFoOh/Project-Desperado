@@ -17,6 +17,10 @@ class Ability
       project.owner == user
     end
 
+    can :read, Project do |project|
+      project.users.include? user
+    end
+
     # # This is for testing
     # # We need to set access control for the right user
     # can :crud, [Access, Airport, Attachment, BillCode, Client, ClosingForm, Customer, Equipment,

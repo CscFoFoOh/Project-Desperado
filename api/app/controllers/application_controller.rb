@@ -12,11 +12,11 @@ class ApplicationController < ActionController::API
     devise_parameter_sanitizer.for(:account_update).push(:first_name, :last_name)
   end
 
-  # If you want constant auth
-  # check_authorization
+  rescue_from CanCan::AccessDenied do
+    head :unauthorized
+  end
 
-  # If you want to rescue from auth error and redirect
-  rescue_from CanCan::AccessDenied do |exception|
-    redirect_to root_url, :alert => exception.message
+  rescue_from ActiveRecord::RecordNotFound do |e|
+    render json: { errors: [{ attribute: '', message: e.message}], total: 1 }, status: 400
   end
 end
