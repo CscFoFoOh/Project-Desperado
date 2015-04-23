@@ -33,4 +33,10 @@ describe User do
     expect(@user.create_slug.length).to eq(64)
   end
 
+  it 'creates a second slug if users slug already exists' do 
+    slug = @user.create_slug
+    @user.save
+    expect(@user.create_slug).to_not eq(slug)
+  end
+
 end
