@@ -6,6 +6,10 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @projects = Project.where(closed_at: nil, ended_at: nil)
+
+    if params[:userid]
+      @projects = @projects.joins(:memberships).where(memberships: { user_id: params[:userid].to_i })
+    end
   end
 
   # GET /projects/1
