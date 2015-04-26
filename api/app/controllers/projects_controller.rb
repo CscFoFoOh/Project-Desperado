@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
     @projects = Project.where(closed_at: nil, ended_at: nil)
 
     if params[:userid]
-      @projects = @projects.joins(:memberships).where(memberships: { user_id: params[:userid].to_i })
+      @projects = @projects.joins(:users).where(users: { slug: params[:userid] })
     end
   end
 
