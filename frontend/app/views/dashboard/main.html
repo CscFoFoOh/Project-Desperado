@@ -10,6 +10,11 @@
           <div class="create-date"> Created On: {{ project.created_at | date:'MM/dd/yyyy' }}</div>
         </td>
         </tr>
+        <tr ng-if="projects.length == 0">
+          <td>
+            There are no projects.
+          </td>
+        </tr>
     </table>
     </div>
   </div>

@@ -35,22 +35,35 @@
       </div>
       <div class="panel-body">
         <table>
-          <tr ng-repeat="user in project_users">
-            <td>{{ user.first_name + " " + user.last_name }}</td>
-            <td>{{ user.email }}</td>
-            <td ng-if="logged_in_user.id === owner_id && logged_in_user.id !== user.id"><a><i ng-click="removeUser(user.id)" class="fa fa-times"></i></a></td>
-          </tr>
-          <tr ng-if="logged_in_user.id === owner_id">
-            <td>
-              <form class="form-inline">
-                <div class="form-group">
-                  <input type="email" name="email" ng-model="new_user.email" class="form-control" placeholder="Invite User to Project" />
-                  <button class="btn btn-primary" ng-click="addUser()">Invite</button>
-                </div>
-              </form>
+          <tr ng-repeat="user in project_users | orderBy : 'last_name'">
+            <td width="200px">{{ user.first_name + " " + user.last_name }}</td>
+            <td width="200px">{{ user.email }}</td>
+            <td width="200px" ng-if="logged_in_user.id === owner_id && logged_in_user.id === user.id" class="owner-column">
+              Project Owner
+            </td>
+            <td ng-if="logged_in_user.id === owner_id && logged_in_user.id !== user.id">
+              <button class="btn btn-danger btn-xs" ng-click="removeUser(user.id)">Remove From Project</button>
             </td>
           </tr>
         </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row" ng-if="logged_in_user.id === owner_id">
+<div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Invite a User
+      </div>
+      <div class="panel-body">
+        <form class="form-inline">
+          <div class="form-group">
+            <input type="email" name="email" ng-model="new_user.email" class="form-control input-sm" placeholder="Invite User to Project" />
+            <button class="btn btn-primary btn-xs" ng-click="addUser()">Invite</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>

@@ -1,25 +1,43 @@
-<h1>Edit Account</h1>
 
-<form name="editAccountForm" novalidate>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+  <div class="panel panel-default">
+      <div class="panel-heading">Edit Account
+            <div class="pull-right">
+              <button class="btn btn-danger btn-xs" ng-click="deleteAccount()">Delete Account</button>
+            </div></div>
+        <form name="editAccountForm" novalidate>
 
-  <div class="form-group" ng-class="{'has-error': editAccountForm.first_name.$dirty && !editAccountForm.first_name.$valid }">
-    <label for="first_name">First Name</label>
-    <input class="form-control" type="text" name="first_name" placeholder="Enter first name" required pattern="[A-Za-z ,.'-]+" ng-model="user.first_name">
-    <span class="help-block" ng-show="editAccountForm.first_name.$dirty && !editAccountForm.first_name.$valid">You must enter a valid first name.</span>
+          <div class="form-group" ng-class="{'has-error': editAccountForm.email.$dirty && !editAccountForm.email.$valid }">
+            <label for="email">Email address</label>
+            <input class="form-control" type="email" name="email" placeholder="Enter email" required ng-model="user.email">
+            <span class="help-block" ng-show="editAccountForm.email.$dirty && !editAccountForm.email.$valid">You must enter a valid email.</span>
+          </div>
+
+          <div class="form-group" ng-class="{'has-error': editAccountForm.password.$dirty && !editAccountForm.password.$valid }">
+            <label for="password">Password</label>
+            <input class="form-control" type="password" name="password" placeholder="Enter password" pattern=".{8,}" ng-model="user.password">
+            <span class="help-block" ng-show="editAccountForm.password.$dirty && !editAccountForm.password.$valid">Your password must be at least eight characters long.</span>
+          </div>
+
+          <div class="form-group" ng-class="{'has-error': editAccountForm.password_confirmation.$dirty && !editAccountForm.password_confirmation.$valid }">
+            <label for="password_confirmation">Confirm Password</label>
+            <input class="form-control" type="password" name="password_confirmation" placeholder="Enter password again" ng-model="user.password_confirmation" compare-to="user.password">
+            <span class="help-block" ng-show="editAccountForm.password_confirmation.$dirty && !editAccountForm.password_confirmation.$valid">This must match your password above.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="first_name">First Name</label>
+            <input class="form-control" type="text" name="first_name" placeholder="Enter user first name" required ng-model="user.first_name">
+          </div>
+
+          <div class="form-group">
+            <label for="last_name">Last Name</label>
+            <input class="form-control" type="text" name="last_name" placeholder="Enter user last name" required ng-model="user.last_name">
+          </div>
+
+          <input type="submit" class="btn btn-primary" ng-click="update()" ng-disabled="!editAccountForm.$valid" value="Update User" />
+        </form>
+    </div>
   </div>
-
-  <div class="form-group" ng-class="{'has-error': editAccountForm.last_name.$dirty && !editAccountForm.last_name.$valid }">
-    <label for="last_name">Last Name</label>
-    <input class="form-control" type="text" name="last_name" placeholder="Enter last name" required pattern="[A-Za-z ,.'-]+" ng-model="user.last_name">
-    <span class="help-block" ng-show="editAccountForm.last_name.$dirty && !editAccountForm.last_name.$valid">You must enter a valid last name</span>
-  </div>
-
-  <input type="submit" class="btn btn-primary" ng-click="update()" ng-disabled="!editAccountForm.$valid" value="Save" />
-
-</form>
-
-<h1>Delete Account</h1>
-
-<p>Click the button below to delete your account.</p>
-
-<button class="btn btn-danger" ng-click="deleteAccount()">Delete account</button>
+</div>

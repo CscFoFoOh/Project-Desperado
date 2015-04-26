@@ -5,7 +5,7 @@ angular
     $scope.projects = [];
 
     ProjectFactory
-      .getUserProjects()
+      .getMyProjects()
       .then(function(res) {
         $scope.projects = res.data.data;
       });

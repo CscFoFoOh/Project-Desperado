@@ -9,7 +9,11 @@ angular
       return $http.get('/api' + endpoint);
     };
 
-    factory.getUserProjects = function() {
+    factory.getUserProjects = function(id) {
+      return $http.get('/api/' + endpoint + '?userid=' + id);
+    };
+
+    factory.getMyProjects = function() {
       return $http.get('/api/me/projects');
     };
 

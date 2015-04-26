@@ -26,3 +26,21 @@
     </div>
   </div>
 </div>
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Users on Project
+      </div>
+      <div class="panel-body">
+        <table>
+          <tr ng-repeat="user in project_users | orderBy : 'last_name'">
+            <td width="200px">{{ user.first_name + " " + user.last_name }}</td>
+            <td width="200px">{{ user.email }}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

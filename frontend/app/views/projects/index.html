@@ -8,8 +8,13 @@
           <td>
             <h4><a ui-sref="single-project({ id: project.id })">{{ project.name }}</a></h4>
             <div>{{ project.description }}</div>
-          <div class="create-date"> Created On: {{ project.created_at | date:'MM/dd/yyyy' }}</div>
-        </td>
+            <div class="create-date"> Created On: {{ project.created_at | date:'MM/dd/yyyy' }}</div>
+          </td>
+        </tr>
+        <tr ng-if="projects.length == 0">
+          <td>
+            There are no projects.
+          </td>
         </tr>
     </table>
     </div>
