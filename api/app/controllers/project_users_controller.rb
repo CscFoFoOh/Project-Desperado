@@ -2,8 +2,6 @@ class ProjectUsersController < ApplicationController
   before_action :set_project, except: :destroy
 
   def index
-    authorize! :read, @project
-
     @users = User.joins(:memberships).where(memberships: { project_id: @project.id })
 
     render 'users/index', status: 200
