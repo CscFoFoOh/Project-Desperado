@@ -65,13 +65,15 @@ describe UsersController, type: :request do
     end
   end
 
-  # describe "Destroy user" do
+  describe "Destroy user" do
     
-  #   it "gets a 201 response with correct params" do
-  #     delete "/api/users/#{@user.slug}", {}, @auth_headers
-  #     expect(User.find_by slug: @user.slug).to eq(nil)
-  #   end
-  # end
+    it "gets a 201 response with correct params" do
+      @new_user = FactoryGirl.create(:confirmed_user)
+      delete "/api/users/#{@new_user.slug}", {}, @auth_headers
+      @test = User.find_or_create_by(id: @new_user.id)  
+      expect(@test.persisted?).to eq(false)
+    end
+  end
 
 
 end
