@@ -13,11 +13,11 @@ gem 'cancancan', '~>1.10'
 group :development do
   gem 'spring'
   gem 'mailcatcher'
-  gem 'pry-rails'
 end
 
 group :development, :test do
   # Factory generator
+  gem 'pry-rails'
   gem 'factory_girl_rails', require: false
 
   gem 'rspec-rails', '~> 3.0'
