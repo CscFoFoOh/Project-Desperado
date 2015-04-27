@@ -35,6 +35,21 @@ angular
       }
     };
 
+    $scope.closeProject = function() {
+      var confirm = $window.confirm('Are you sure you want to close this project?  This will remove it from the projects list but will still be visible to those on the project.');
+
+      if (confirm) {
+        var closed_at = new Date();
+
+        ProjectFactory
+          .updateProject($scope.project_id, { closed_at: closed_at })
+          .then(function(res) {
+            $rootScope.$broadcast('pd:project-updated');
+            $scope.project.closed_at = closed_at;
+          });
+      }
+    };
+
     $scope.addUser = function() {
       ProjectFactory
         .addUser($scope.project_id, $scope.new_user)

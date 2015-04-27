@@ -5,10 +5,10 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.where(closed_at: nil, ended_at: nil)
-
     if params[:userid]
-      @projects = @projects.joins(:users).where(users: { slug: params[:userid] })
+      @projects = Project.joins(:users).where(users: { slug: params[:userid] })
+    else
+      @projects = Project.where(closed_at: nil, ended_at: nil)
     end
   end
 
@@ -61,6 +61,6 @@ class ProjectsController < ApplicationController
     end
 
     def project_params
-      params.permit(:name, :description)
+      params.permit(:name, :description, :closed_at)
     end
 end
