@@ -37,7 +37,9 @@
         <table>
           <tr ng-repeat="user in project_users | orderBy : 'last_name'">
             <td width="200px">{{ user.first_name + " " + user.last_name }}</td>
-            <td width="200px">{{ user.email }}</td>
+            <td width="200px" ng-if="owner_id === user.id" class="owner-column">
+              Project Owner
+            </td>
           </tr>
         </table>
       </div>

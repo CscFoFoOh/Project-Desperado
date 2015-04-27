@@ -8,6 +8,7 @@ angular
     $scope.logged_in_user_id = null;
     $scope.already_applied = false;
     $scope.project_users = [];
+    $scope.owner_id = null;
 
     function validateAlreadyApplied() {
       if ($scope.logged_in && !jQuery.isEmptyObject($scope.project)) {
@@ -29,6 +30,7 @@ angular
       .getProject($scope.project_id)
       .then(function(res) {
         $scope.project = res.data.data;
+        $scope.owner_id = $scope.project.owner_id;
       })
       .then(validateAlreadyApplied);
 
