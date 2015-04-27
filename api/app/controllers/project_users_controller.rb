@@ -1,5 +1,5 @@
 class ProjectUsersController < ApplicationController
-  before_action :set_project, except: :destroy
+  before_action :set_project
 
   def index
     @users = User.joins(:memberships).where(memberships: { project_id: @project.id })
