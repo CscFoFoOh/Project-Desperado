@@ -30,6 +30,7 @@ angular
       .getProject($scope.project_id)
       .then(function(res) {
         $scope.project = res.data.data;
+        console.log($scope.project);
         $scope.owner_id = $scope.project.owner_id;
       })
       .then(validateAlreadyApplied);

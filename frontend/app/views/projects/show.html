@@ -3,10 +3,11 @@
   <div class="panel panel-default">
       <div class="panel-heading">
         {{ project.name }}
-        <div class="pull-right" ng-if="logged_in && !already_applied">
+        <span ng-if="project.closed_at"> (Closed)</span>
+        <div class="pull-right" ng-if="logged_in && !already_applied && !project.closed_at">
           <a class="btn btn-default btn-xs" ng-click="applyToProject(logged_in_user_id)">Apply to Project</a>
         </div>
-        <div class="pull-right" ng-if="!logged_in">
+        <div class="pull-right" ng-if="!logged_in && !project.closed_at">
           <a ui-sref="login">You must login to apply to this project.</a>
         </div>
       </div>
