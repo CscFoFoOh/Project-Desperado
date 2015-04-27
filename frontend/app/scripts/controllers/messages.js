@@ -79,7 +79,7 @@ angular
   });
 
   $scope.$on('pd:applied-to-project', function() {
-    $scope.message = 'An email has been sent to the owner of the project. If they approve you, you\'re in!';
+    $scope.message = 'You are now part of this project. Yay you!';
     $scope.classType = 'alert-success';
     clearMessage();
   });
