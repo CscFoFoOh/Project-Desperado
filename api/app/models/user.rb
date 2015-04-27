@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   before_create :create_slug
+  before_destroy :remove_created_projects
   # Include default devise modules.
   devise :database_authenticatable, :registerable,
           :recoverable, :rememberable, :trackable, :validatable,
@@ -42,5 +43,11 @@ class User < ActiveRecord::Base
     res += "?#{params.to_query}"
 
     return res
+  end
+
+  def remove_created_projects
+    projects.each do |project|
+      project.destroy if project.owner == self
+    end
   end
 end
