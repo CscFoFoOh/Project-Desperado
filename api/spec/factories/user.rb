@@ -1,10 +1,10 @@
 FactoryGirl.define do 
 	factory :user do 
 		email { Faker::Internet.email } 
-		provider {Faker::Name.name}
+		provider "email"
 		password { Faker::Internet.password(8) } 
 		password_confirmation { password } 
-    uid {Faker::Number.digit}
+    uid {|u| u.email}
 		first_name {Faker::Name.name}
 		last_name {Faker::Name.name}
 		factory :confirmed_user do 
