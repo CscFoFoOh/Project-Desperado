@@ -7,6 +7,11 @@
         <div class="pull-right" ng-if="logged_in && !already_applied && !project.closed_at">
           <a class="btn btn-default btn-xs" ng-click="applyToProject(logged_in_user_id)">Apply to Project</a>
         </div>
+        <div class="pull-right" ng-if="(logged_in_user.id === owner_id) || logged_in_user.is_admin">
+          <a class="btn btn-default btn-xs" ui-sref="dashboard.edit-project({ id: project.id })">Edit Project</a> &nbsp;
+          <button class="btn btn-primary btn-xs" ng-if="!project.closed_at" ng-click="closeProject()">Close this project</button> &nbsp;
+          <button class="btn btn-danger btn-xs" ng-click="deleteProject()">Delete this project</button> &nbsp;
+        </div>
         <div class="pull-right" ng-if="!logged_in && !project.closed_at">
           <a ui-sref="login">You must login to apply to this project.</a>
         </div>
