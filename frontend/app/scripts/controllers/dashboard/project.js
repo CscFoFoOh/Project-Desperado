@@ -1,3 +1,5 @@
+'use strict';
+
 angular
 .module('projectDesperado')
 .controller('DashboardProjectController', function($scope, $window, $state, $stateParams, $rootScope, ProjectFactory, authUser) {
@@ -65,7 +67,7 @@ angular
         .removeUser($scope.project_id, user_id)
         .then(function(res) {
           $rootScope.$broadcast('pd:user-removed');
-          for (i = 0; i < $scope.project_users.length; i++) {
+          for (var i = 0; i < $scope.project_users.length; i++) {
             temp = $scope.project_users[i];
             if (temp.id === user_id) {
               $scope.project_users.splice(i, 1);
