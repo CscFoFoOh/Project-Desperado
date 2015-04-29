@@ -68,7 +68,7 @@ angular
         .then(function(res) {
           $rootScope.$broadcast('pd:user-removed');
           for (var i = 0; i < $scope.project_users.length; i++) {
-            temp = $scope.project_users[i];
+            var temp = $scope.project_users[i];
             if (temp.id === user_id) {
               $scope.project_users.splice(i, 1);
             }
